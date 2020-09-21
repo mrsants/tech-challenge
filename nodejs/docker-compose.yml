@@ -1,0 +1,51 @@
+version: '3'
+
+services:
+  node:
+    container_name: services-node
+    restart: always
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      - mongodb
+    ports:
+      - 3000:3000
+    volumes:
+      - ./:/usr/src/app
+    command: sh -c "npm run dev"
+    networks:
+      - services-node
+    links:
+      - mongodb
+  mongodb:
+    image: mongo
+    restart: unless-stopped
+    container_name: services-node-mongodb
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: root
+      MONGO_INITDB_DATABASE: node_ms
+    volumes:
+      - ./docker/mongo-data:/data
+      - ./mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
+    ports:
+      - 27017:27017
+    networks:
+      - services-node
+    command: --auth
+  mysqldb:
+    container_name: services-node-mysqldb
+    image: mariadb:latest
+    networks:
+      - services-node
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      DB_HOSTNAME: mysql
+    volumes:
+      - ./docker/mysql-data:/var/lib/mysql
+networks:
+  services-node:
+      driver: bridge
