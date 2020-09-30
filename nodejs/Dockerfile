@@ -10,6 +10,6 @@ COPY . .
 RUN npm install
 RUN chown -R nupp:nupp .
 USER nupp
-EXPOSE 3000
+EXPOSE 3400
 
 CMD ["npm", "run", "dev"]
