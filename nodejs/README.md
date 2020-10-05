@@ -48,9 +48,13 @@ Requisito é ter docker em sua máquina para rodar nossa API de mock:
 docker-compose up
 ```
 
-## Transactions
-Com o serviço executando você terá acessar e utilizar os seguintes métodos básicos:
 
+## Mock API
+Com o serviço executando você poderá utilizar as seguintes API's:
+
+---
+
+## Transactions
 Listagem de `transactions` registradas
 `GET http://0.0.0.0:8080/transactions`
 
