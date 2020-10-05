@@ -1,45 +1,10 @@
-version: '3.7'
-
+version: '3.0'
 services:
-  mysql:
-    image: mariadb
-    restart: always
+  json-server:
+    image: vimagick/json-server
+    command: -H 0.0.0.0 -p 8080 -w /config/db.json
     ports:
-      - 3389:3306
-    environment:
-      MYSQL_ROOT_PASSWORD: tiendanube
-    networks:
-      - node-network
-
-  mongo:
-    image: mongo
-    restart: always
-    environment:
-      MONGO_INITDB_ROOT_USERNAME: tiendanube
-      MONGO_INITDB_ROOT_PASSWORD: tiendanube
-    ports:
-      - "27017:27017"
+      - "8080:8080"
     volumes:
-      - ./docker/mongo-data:/data
-      - ./mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
-    networks:
-      - node-network
-
-  mongo-express:
-    image: mongo-express
-    ports:
-      - 8081:8081
-    environment:
-      ME_CONFIG_BASICAUTH_USERNAME: tiendanube
-      ME_CONFIG_BASICAUTH_PASSWORD: tiendanube
-      ME_CONFIG_MONGODB_PORT: 27017
-      ME_CONFIG_MONGODB_ADMINUSERNAME: tiendanube
-      ME_CONFIG_MONGODB_ADMINPASSWORD: tiendanube
-    links:
-      - mongo
-    networks:
-      - node-network
-
-networks: 
-    node-network:
-      driver: bridge
+      - ./config:/config
+    restart: always
