@@ -15,18 +15,18 @@ para isso vamos utilizar algumas API's disponíveis nesse repositório.
     * Data de Expiração
     * CVV do cartão
 
-3. Como o número do cartão é uma informação sensível, devemos armazenar e retornar somente os últimos 4 digítos do cartão.
+3. Como o número do cartão é uma informação sensível, devemos armazenar e retornar somente os últimos 4 dígitos do cartão.
 
 4. Recebíveis do merchant (payables), devem possuir as seguintes regras de negócio:
     * Transação **Debit card**:
       * O payable deve ser criado com **status = paid**, indicando que o merchan
-      * O payble deve ser criado com a data igual a data de criação (D + 0).
+      * O payable deve ser criado com a data igual a data de criação (D + 0).
 
     * Transação **Credit card**:
       * O payable deve ser criado com **status = waiting_funds**, indicando que o merchant irá receber esse valor no futuro
       * O Payable deve ser criado com a data igual a data de criação da transação  + 30 dias (D + 30)
 
-5. Ao criar paybles, devemos descontar uma taxa de processamento (chamada de `fee`). Considere **2%** para transações **debit_card**
+5. Ao criar payables, devemos descontar uma taxa de processamento (chamada de `fee`). Considere **2%** para transações **debit_card**
 e **4%** para transações **credit_card**. Exemplo: Quando um payable é criado no valor de R$ 100,00 a partir de uma transação **credit_card**  ele receberá R$ 96,00.
 
 6. Precisamos de um endpoint que calcule o total de Recebíveis (payables) do merchant por período, a resposta deve conter:
@@ -37,7 +37,7 @@ e **4%** para transações **credit_card**. Exemplo: Quando um payable é criado
 ## Extra
 - Você pode utilizar qualquer frameworks e biblioteca
 - É um diferencial que pelo menos a lógica principal seja testada
-- É un dferencial trabalhar com Typescript no dia a dia
+- É um diferencial trabalhar com Typescript no dia a dia
 
 
 
