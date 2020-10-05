@@ -1,8 +1,8 @@
 # Tech Challenge
 O desafio consiste em implementar novas **API's** para trabalhar com as transações de nossos merchants (vendedores),
-para isso vamos utilizar algumas API's disponíveis nesse repositório
+para isso vamos utilizar algumas API's disponíveis nesse repositório.
 
-## Nós precisamos de:
+## Nós precisamos que você implemente:
 
 1. Um endpoint para processar pagamentos, transações e retornar a lista de todas transações criadas por um determinado merchant (vendedor)
 
@@ -35,7 +35,7 @@ e **4%** para transações **credit_card**. Exemplo: Quando um payable é criado
   * Total cobrado de taxa 
 
 ## Extra
-- Você pode utilizar qualquer frameworks e biblioteca que se sinta mais a vontade
+- Você pode utilizar qualquer frameworks e biblioteca
 - É um diferencial que pelo menos a lógica principal seja testada
 - É un dferencial trabalhar com Typescript no dia a dia
 
