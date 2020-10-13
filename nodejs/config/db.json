@@ -13,6 +13,7 @@
   ],
   "payables": [
     {
+      "id": "1",
       "status": "payd",
       "create_date": "15//03/2020",
       "subtotal": "200",
@@ -20,6 +21,7 @@
       "total": "196"
     },
     {
+      "id": "2",
       "status": "paid",
       "create_date": "15//03/2020",
       "subtotal": "100",
@@ -27,6 +29,7 @@
       "total": "196"
     },
     {
+      "id": "3",
       "status": "waiting_funds",
       "create_date": "15//03/2020",
       "subtotal": "100",
